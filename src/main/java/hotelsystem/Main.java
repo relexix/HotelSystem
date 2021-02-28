@@ -3,6 +3,7 @@ package hotelsystem;
 import dbconnection.DataBaseUtils;
 import dbconnection.HibernateUtils;
 import hotelsystem.tables.Booking;
+import menu.MenuController;
 import repository.BookingRepository;
 
 import java.sql.SQLException;
@@ -16,14 +17,14 @@ public class Main {
         //DataBaseUtils.createTableRoom();
         //DataBaseUtils.createTableClient();
         // SHOW TABLES COMMAND + GET CONNECTION
-        DataBaseUtils.showTables();
-        DataBaseUtils.getConnection();
-
-//        //CREATE BOOKING
-//        Booking booking1 = new Booking(1, 22, 28, "cash", 200);
-        BookingRepository bookingRepository = new BookingRepository();
-//        bookingRepository.addBooking(booking1);
+//        DataBaseUtils.showTables();
+//        DataBaseUtils.getConnection();
 //
+//        //CREATE BOOKING
+//        Booking booking1 = new Booking(1, 22, 28, "cash", 200,1,1,1);
+//        BookingRepository bookingRepository = new BookingRepository();
+//        bookingRepository.addBooking(booking1);
+
 //        //Create Client
 //        Client client1 = new Client(1, "Alex", "Boitor", 30, "Baia Mare",
 //                555662552, "alex.boitor90@gmail.com");
@@ -35,10 +36,11 @@ public class Main {
 //        RoomRepository roomRepository = new RoomRepository();
 //        roomRepository.addRoom(room1);
 
-        //SHOW BOOKING LIST
-        BookingRepository.showBookingList();
+        //SHOW BOOKING LIST // TODO FINISH THIS
+//        BookingRepository.showBookingList();
 
-
+        MenuController menuController = new MenuController();
+        menuController.start();
 
     }
 }

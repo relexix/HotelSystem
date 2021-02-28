@@ -80,7 +80,7 @@ public class BookingRepository {
 
     public static void showBookingList() {
         Session session = HibernateUtils.getSessionFactory().openSession();
-        List allBooking = session.createSQLQuery("SELECT * FROM booking").list();
+        List allBooking = session.createSQLQuery("select * from booking").list();
         System.out.println("TABLES: ");
         System.out.println(allBooking);
         System.out.println("TABLES SIZE: ");

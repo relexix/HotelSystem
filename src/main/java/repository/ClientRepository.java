@@ -22,4 +22,5 @@ public class ClientRepository {
 
         session.close();
     }
+
 }
