@@ -14,7 +14,7 @@ public class BookingRepository {
         System.out.println("Hibernate session started for addBooking: ");
 
         Transaction transaction = session.beginTransaction();
-
+        // Test branch
         // actual save into DB
         session.save(booking);
 
