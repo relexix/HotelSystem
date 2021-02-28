@@ -1,6 +1,5 @@
 package hotelsystem.tables;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -27,8 +26,7 @@ public class Room {
     public Room() {
     }
 
-    public Room(int roomId, int number, String size, int beds, int price) {
-        this.roomId = roomId;
+    public Room(int number, String size, int beds, int price) {
         this.number = number;
         this.size = size;
         this.beds = beds;

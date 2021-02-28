@@ -1,7 +1,6 @@
 package repository;
 
 import dbconnection.HibernateUtils;
-import hotelsystem.tables.Client;
 import hotelsystem.tables.Room;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

@@ -1,6 +1,5 @@
 package dbconnection;
 
-import hotelsystem.tables.Booking;
 import org.hibernate.Session;
 
 import java.sql.Connection;
@@ -17,7 +16,7 @@ public class DataBaseUtils {
 
     public static String DB_URL = "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_NAME;
     public static String DB_USER = "root";
-    public static String DB_PASS = "441100";
+    public static String DB_PASS = "java";
 
     public static void createTableBooking() {
         String ceateTableBooking = "CREATE TABLE `booking` (\n" +
@@ -26,7 +25,16 @@ public class DataBaseUtils {
                 "  `checkout` date DEFAULT NULL,\n" +
                 "  `paymentMethod` varchar(25) DEFAULT NULL,\n" +
                 "  `totalPrice` int(10) DEFAULT NULL,\n" +
-                "  PRIMARY KEY (`bookingId`)\n" +
+                "  `roomId` int(20),\n" +
+                "  `clientId` int(20),\n" +
+                "  `paymentId` int(20),\n" +
+                "  PRIMARY KEY (`bookingId`),\n" +
+                "   CONSTRAINT `fk_booking_room_id` FOREIGN KEY (roomId)\n" +
+                "        REFERENCES room(roomId),\n" +
+                "   CONSTRAINT `fk_booking_client_id` FOREIGN KEY (clientId)\n" +
+                "        REFERENCES client(clientId),\n" +
+                "   CONSTRAINT `fk_booking_payment_id` FOREIGN KEY (paymentId)\n" +
+                "        REFERENCES payment(paymentId)\n" +
                 ")";
         Connection connection = null;
         try {
@@ -90,6 +98,23 @@ public class DataBaseUtils {
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             Statement statement = connection.createStatement();
             statement.execute(ceateTableClient);
+            statement.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public static void createTablePayment() {
+        String ceateTablePayment = "CREATE TABLE `payment` (\n" +
+                "  `paymentId` int(20) NOT NULL AUTO_INCREMENT,\n" +
+                "  `method` varchar(20) DEFAULT NULL,\n" +
+                "  PRIMARY KEY (`paymentId`)\n" +
+                ")";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            Statement statement = connection.createStatement();
+            statement.execute(ceateTablePayment);
             statement.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
