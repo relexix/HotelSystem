@@ -13,7 +13,7 @@ public class ClientRepository {
         System.out.println("Hibernate session started for addClient: ");
 
         Transaction transaction = session.beginTransaction();
-
+        // Test branch 2
         // actual save into DB
         session.save(client);
 
