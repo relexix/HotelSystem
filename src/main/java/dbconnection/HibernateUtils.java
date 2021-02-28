@@ -2,12 +2,14 @@ package dbconnection;
 
 import hotelsystem.tables.Booking;
 import hotelsystem.tables.Client;
+import hotelsystem.tables.Payment;
 import hotelsystem.tables.Room;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
+
 import java.util.Properties;
 
 import static dbconnection.DataBaseUtils.*;
@@ -37,6 +39,7 @@ public class HibernateUtils {
             configuration.addAnnotatedClass(Booking.class);
             configuration.addAnnotatedClass(Client.class);
             configuration.addAnnotatedClass(Room.class);
+            configuration.addAnnotatedClass(Payment.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 

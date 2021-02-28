@@ -1,6 +1,7 @@
 package hotelsystem.tables;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "booking")
@@ -11,10 +12,10 @@ public class Booking {
     private int bookingId;
 
     @Column(name = "checkIn")
-    private int chechIn;
+    private LocalDate chechIn;
 
     @Column(name = "checkOut")
-    private int checkOut;
+    private LocalDate checkOut;
 
     @Column(name = "paymentMethod")
     private String paymentMethod;
@@ -22,15 +23,29 @@ public class Booking {
     @Column(name = "totalPrice")
     private int totalPrice;
 
+    @ManyToOne
+    @JoinColumn(name = "clientId")
+    private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "roomId")
+    private Room room;
+
+    @OneToOne
+    @JoinColumn(name = "paymentId")
+    private Payment payment;
+
     public Booking() {
     }
 
-    public Booking(int bookingId, int chechIn, int checkOut, String paymentMethod, int totalPrice) {
-        this.bookingId = bookingId;
+    public Booking(LocalDate chechIn, LocalDate checkOut, String paymentMethod, int totalPrice, Client client, Room room, Payment payment) {
         this.chechIn = chechIn;
         this.checkOut = checkOut;
         this.paymentMethod = paymentMethod;
         this.totalPrice = totalPrice;
+        this.client = client;
+        this.room = room;
+        this.payment = payment;
     }
 
     public int getBookingId() {
@@ -41,19 +56,19 @@ public class Booking {
         this.bookingId = bookingId;
     }
 
-    public int getChechIn() {
+    public LocalDate getChechIn() {
         return chechIn;
     }
 
-    public void setChechIn(int chechIn) {
+    public void setChechIn(LocalDate chechIn) {
         this.chechIn = chechIn;
     }
 
-    public int getCheckOut() {
+    public LocalDate getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(int checkOut) {
+    public void setCheckOut(LocalDate checkOut) {
         this.checkOut = checkOut;
     }
 
@@ -73,6 +88,30 @@ public class Booking {
         this.totalPrice = totalPrice;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
@@ -81,6 +120,9 @@ public class Booking {
                 ", checkOut=" + checkOut +
                 ", paymentMethod='" + paymentMethod + '\'' +
                 ", totalPrice=" + totalPrice +
+                ", client=" + client +
+                ", room=" + room +
+                ", payment=" + payment +
                 '}';
     }
 }
