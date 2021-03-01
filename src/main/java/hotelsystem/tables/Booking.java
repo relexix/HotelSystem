@@ -49,6 +49,66 @@ public class Booking {
         return bookingId;
     }
 
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public int getChechIn() {
+        return chechIn;
+    }
+
+    public void setChechIn(int chechIn) {
+        this.chechIn = chechIn;
+    }
+
+    public int getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(int checkOut) {
+        this.checkOut = checkOut;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public int getFk_clientId() {
+        return fk_clientId;
+    }
+
+    public void setFk_clientId(int fk_clientId) {
+        this.fk_clientId = fk_clientId;
+    }
+
+    public int getFk_roomId() {
+        return fk_roomId;
+    }
+
+    public void setFk_roomId(int fk_roomId) {
+        this.fk_roomId = fk_roomId;
+    }
+
+    public int getFk_paymentId() {
+        return fk_paymentId;
+    }
+
+    public void setFk_paymentId(int fk_paymentId) {
+        this.fk_paymentId = fk_paymentId;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +

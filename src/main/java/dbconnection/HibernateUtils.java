@@ -39,7 +39,7 @@ public class HibernateUtils {
             configuration.addAnnotatedClass(Room.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-
+            //
             sessionFactory = configuration.buildSessionFactory();
         }
 

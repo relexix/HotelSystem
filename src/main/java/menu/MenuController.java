@@ -6,6 +6,5 @@ public class MenuController {
 
     public void start() {
         HibernateUtils.getSessionFactory().openSession();
-        MenuOptions.MenuStart();
     }
 }
