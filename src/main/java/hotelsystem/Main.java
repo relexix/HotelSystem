@@ -3,6 +3,7 @@ package hotelsystem;
 import dbconnection.DataBaseUtils;
 import dbconnection.HibernateUtils;
 import hotelsystem.tables.Booking;
+import hotelsystem.tables.Room;
 import menu.MenuController;
 import repository.BookingRepository;
 
@@ -37,10 +38,13 @@ public class Main {
 //        roomRepository.addRoom(room1);
 
         //SHOW BOOKING LIST // TODO FINISH THIS
-//        BookingRepository.showBookingList();
-
+//        BookingRepository.findAll();
+//
         MenuController menuController = new MenuController();
         menuController.start();
+
+//        List<Booking> bookingList = BookingRepository.findAllBooking();
+//        System.out.println(bookingList);
 
     }
 }
