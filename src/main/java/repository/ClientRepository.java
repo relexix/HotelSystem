@@ -1,10 +1,12 @@
 package repository;
 
 import dbconnection.HibernateUtils;
-import hotelsystem.tables.Booking;
 import hotelsystem.tables.Client;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class ClientRepository {
 
@@ -23,4 +25,16 @@ public class ClientRepository {
         session.close();
     }
 
+    public static List<Client> findAllClient() {
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        System.out.println("Hibernate session started for findAllClient()");
+
+        Query findAllQuery = session.createQuery("FROM Client");
+        List<Client> clientListList = findAllQuery.list();
+
+        session.close();
+
+        System.out.println("Client List Size:  " + clientListList.size());
+        return clientListList;
+    }
 }

@@ -2,6 +2,7 @@ package dbconnection;
 
 import hotelsystem.tables.Booking;
 import hotelsystem.tables.Client;
+import hotelsystem.tables.Payment;
 import hotelsystem.tables.Room;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -36,6 +37,7 @@ public class HibernateUtils {
             // TODO Add classes for hibernate to know what
             configuration.addAnnotatedClass(Booking.class);
             configuration.addAnnotatedClass(Client.class);
+            configuration.addAnnotatedClass(Payment.class);
             configuration.addAnnotatedClass(Room.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

@@ -1,10 +1,12 @@
 package hotelsystem.tables;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Entity
 @Table(name = "payment")
 public class Payment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "paymentId")
@@ -16,8 +18,7 @@ public class Payment {
     public Payment() {
     }
 
-    public Payment(int paymentId, String method) {
-        this.paymentId = paymentId;
+    public Payment(String method) {
         this.method = method;
     }
 

@@ -32,8 +32,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(int clientId, String firstName, String lastName, int age, String address, int phoneNumber, String eMailAddress) {
-        this.clientId = clientId;
+    public Client(String firstName, String lastName, int age, String address, int phoneNumber, String eMailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

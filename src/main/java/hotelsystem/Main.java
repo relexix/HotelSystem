@@ -6,6 +6,7 @@ import hotelsystem.tables.Booking;
 import hotelsystem.tables.Room;
 import menu.MenuController;
 import repository.BookingRepository;
+import repository.RoomRepository;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -45,6 +46,10 @@ public class Main {
 
 //        List<Booking> bookingList = BookingRepository.findAllBooking();
 //        System.out.println(bookingList);
+
+//        List<Room> roomList = RoomRepository.findAllRooms();
+//        System.out.println(roomList);
+
 
     }
 }
